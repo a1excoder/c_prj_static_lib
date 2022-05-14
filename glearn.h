@@ -16,11 +16,11 @@ struct array_int* array_int_create(size_t size, char[NAME_SIZE]);
 void array_int_destroy(struct array_int**);
 item* array_int_at(struct array_int*, size_t);
 
-static struct array_interface {
+struct array_interface {
 	struct array_int* (*create) (size_t, char[NAME_SIZE]);
 	void (*destroy) (struct array_int**);
 	item* (*at) (struct array_int*, size_t);
-} const array = {
+} static const array = {
 	array_int_create,
 	array_int_destroy,
 	array_int_at
